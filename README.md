@@ -1,5 +1,11 @@
 # dsh-acps-adapter — 用 DSH 搭建 ACPs Leader
 
+[![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](https://opensource.org/licenses/MIT)
+[![npm version](https://img.shields.io/npm/v/dsh-acps.svg)](https://www.npmjs.com/package/dsh-acps)
+[![CI](https://github.com/lzy-like/dsh-acps-adapter/actions/workflows/ci.yml/badge.svg)](https://github.com/lzy-like/dsh-acps-adapter/actions/workflows/ci.yml)
+
+> 徽章说明：仓库设为 Public 后 CI 徽章生效；npm 发布后版本徽章生效。
+
 把 [DeepSeek Harness (DSH)](https://github.com/deepseek-ai/deepseek-harness) 变成 [ACPs](https://github.com/AIP-PUB/ACPs-community)（Agent Collaboration Protocols，智能体协作协议体系，GB/Z 185《人工智能 智能体互联》参考实现）的 **Leader 智能体**：通过 DSH 插件把 ACPs Partner 智能体的技能注册为 DSH 原生工具，让 DSH 模型直接委托、调用并聚合多个 ACPs 智能体。
 
 ## 架构

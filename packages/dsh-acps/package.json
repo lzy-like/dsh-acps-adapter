@@ -30,10 +30,12 @@
     "cordis.patch.yml"
   ],
   "license": "MIT",
+  "author": "dsh-acps contributors <2540874439@qq.com>",
   "repository": {
     "type": "git",
-    "url": "https://github.com/<your-org>/dsh-acps.git"
+    "url": "https://github.com/lzy-like/dsh-acps-adapter.git"
   },
+  "homepage": "https://github.com/lzy-like/dsh-acps-adapter#readme",
   "dsh": {
     "bundle": {
       "patch": "./cordis.patch.yml"
