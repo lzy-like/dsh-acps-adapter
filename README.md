@@ -46,7 +46,7 @@ scripts/smoke-aip.js       协议级冒烟测试（AIP RPC + ADP 发现，不依
 acps-community/            ACPs 官方仓库参考克隆
 ```
 
-## 仓库结构（大白话版）
+## 仓库结构
 
 > 比喻：插件 = 让 DSH 学会说 ACPs 话的翻译器；智能体 = 门店；Leader = 调度中心。
 
