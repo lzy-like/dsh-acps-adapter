@@ -1,0 +1,119 @@
+{
+  "aic": "1.2.156.3088.1.1.D55UOU.NEBZUA.1.0QLD",
+  "active": true,
+  "lastModifiedTime": "2026-06-22T00:00:00.000000+08:00",
+  "protocolVersion": "02.01",
+  "name": "北京美食推荐智能体",
+  "description": "根据用户口味偏好、行程和（可选）交通锚点推荐北京全境（城区+郊区）餐饮与特色美食。范围：仅限北京餐饮。",
+  "version": "1.0.0",
+  "provider": {
+    "organization": "ACPs社区 (mock)",
+    "url": "https://ioa.pub"
+  },
+  "endPoints": [
+    {
+      "url": "http://127.0.0.1:9021/rpc",
+      "transport": "JSONRPC",
+      "security": [
+        {
+          "mtls": []
+        }
+      ]
+    }
+  ],
+  "capabilities": {
+    "streaming": false,
+    "notification": false,
+    "messageQueue": []
+  },
+  "defaultInputModes": [
+    "text/plain"
+  ],
+  "defaultOutputModes": [
+    "text/plain",
+    "application/json"
+  ],
+  "skills": [
+    {
+      "id": "beijing_catering.traditional-food-recommendation",
+      "name": "传统美食推荐",
+      "description": "推荐北京传统美食和老字号餐厅，包括烤鸭、炸酱面、豆汁、爆肚等经典北京菜品。",
+      "version": "1.0.0",
+      "tags": [
+        "传统美食",
+        "老字号",
+        "北京烤鸭"
+      ],
+      "examples": [
+        "我想在北京品尝最正宗的烤鸭，请推荐几家历史悠久的老字号餐厅"
+      ],
+      "inputModes": [
+        "text/plain"
+      ],
+      "outputModes": [
+        "text/plain",
+        "application/json"
+      ]
+    },
+    {
+      "id": "beijing_catering.location-based-restaurant-recommendation",
+      "name": "位置匹配餐厅推荐",
+      "description": "根据用户当前位置或旅游路线推荐附近的餐厅，优化用餐时间和路线安排。",
+      "version": "1.0.0",
+      "tags": [
+        "位置匹配",
+        "就近用餐"
+      ],
+      "examples": [
+        "我明天上午要去故宫游览，中午想在附近找一家不错的餐厅吃午饭"
+      ],
+      "inputModes": [
+        "text/plain"
+      ],
+      "outputModes": [
+        "text/plain",
+        "application/json"
+      ]
+    },
+    {
+      "id": "beijing_catering.dietary-preference-matching",
+      "name": "口味偏好匹配",
+      "description": "根据用户的饮食偏好、忌口要求和口味特点推荐合适的美食和餐厅。",
+      "version": "1.0.0",
+      "tags": [
+        "口味偏好",
+        "饮食禁忌"
+      ],
+      "examples": [
+        "我是素食主义者，想在北京找几家做得不错的素食餐厅"
+      ],
+      "inputModes": [
+        "text/plain"
+      ],
+      "outputModes": [
+        "text/plain",
+        "application/json"
+      ]
+    },
+    {
+      "id": "beijing_catering.food-culture-experience",
+      "name": "美食文化体验",
+      "description": "介绍北京美食的历史文化背景，提供深度的文化体验和知识分享。",
+      "version": "1.0.0",
+      "tags": [
+        "文化体验",
+        "美食历史"
+      ],
+      "examples": [
+        "请详细介绍北京烤鸭的历史起源、制作工艺和文化意义"
+      ],
+      "inputModes": [
+        "text/plain"
+      ],
+      "outputModes": [
+        "text/plain",
+        "application/json"
+      ]
+    }
+  ]
+}

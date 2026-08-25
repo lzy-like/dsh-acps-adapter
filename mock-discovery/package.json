@@ -1,0 +1,12 @@
+{
+  "name": "dsh-acps-mock-discovery",
+  "description": "Mock ADP discovery server for local dsh-acps leader verification",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "license": "MIT"
+}

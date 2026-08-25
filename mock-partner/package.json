@@ -1,0 +1,12 @@
+{
+  "name": "dsh-acps-mock-partner",
+  "description": "Mock ACPs Partner agents implementing the AIP direct-mode RPC protocol for local DSH leader verification",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "license": "MIT"
+}

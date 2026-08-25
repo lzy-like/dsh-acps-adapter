@@ -1,0 +1,119 @@
+{
+  "aic": "1.2.156.3088.1.1.1Z4AXU.YN86QQ.1.186L",
+  "active": true,
+  "lastModifiedTime": "2026-06-22T00:00:00.000000+08:00",
+  "protocolVersion": "02.01",
+  "name": "北京郊区旅游智能体",
+  "description": "北京郊区（延庆、密云、怀柔、门头沟等）自然风光、小众景点与户外活动推荐。",
+  "version": "1.0.0",
+  "provider": {
+    "organization": "ACPs社区 (mock)",
+    "url": "https://ioa.pub"
+  },
+  "endPoints": [
+    {
+      "url": "http://127.0.0.1:9023/rpc",
+      "transport": "JSONRPC",
+      "security": [
+        {
+          "mtls": []
+        }
+      ]
+    }
+  ],
+  "capabilities": {
+    "streaming": false,
+    "notification": false,
+    "messageQueue": []
+  },
+  "defaultInputModes": [
+    "text/plain"
+  ],
+  "defaultOutputModes": [
+    "text/plain",
+    "application/json"
+  ],
+  "skills": [
+    {
+      "id": "beijing_rural.natural-scenery-recommendation",
+      "name": "自然风光推荐",
+      "description": "推荐北京郊区自然风光目的地，如古北水镇、雁栖湖、金海湖等。",
+      "version": "1.0.0",
+      "tags": [
+        "自然风光",
+        "郊区"
+      ],
+      "examples": [
+        "北京郊区哪里自然风光好？请推荐2日游目的地"
+      ],
+      "inputModes": [
+        "text/plain"
+      ],
+      "outputModes": [
+        "text/plain",
+        "application/json"
+      ]
+    },
+    {
+      "id": "beijing_rural.rural-itinerary-planning",
+      "name": "郊区行程规划",
+      "description": "规划北京郊区一日/两日行程，含交通与时间安排。",
+      "version": "1.0.0",
+      "tags": [
+        "行程规划",
+        "周末游"
+      ],
+      "examples": [
+        "周末从市区出发去郊区玩两天，请规划行程"
+      ],
+      "inputModes": [
+        "text/plain"
+      ],
+      "outputModes": [
+        "text/plain",
+        "application/json"
+      ]
+    },
+    {
+      "id": "beijing_rural.hidden-gems-discovery",
+      "name": "小众景点发现",
+      "description": "发掘北京郊区小众、人少的景点。",
+      "version": "1.0.0",
+      "tags": [
+        "小众景点",
+        "人少"
+      ],
+      "examples": [
+        "北京郊区有哪些人少景美的小众景点"
+      ],
+      "inputModes": [
+        "text/plain"
+      ],
+      "outputModes": [
+        "text/plain",
+        "application/json"
+      ]
+    },
+    {
+      "id": "beijing_rural.outdoor-activity-arrangement",
+      "name": "户外活动安排",
+      "description": "安排郊区徒步、骑行、露营等户外活动。",
+      "version": "1.0.0",
+      "tags": [
+        "户外活动",
+        "徒步",
+        "露营"
+      ],
+      "examples": [
+        "北京郊区适合初学者的徒步路线有哪些"
+      ],
+      "inputModes": [
+        "text/plain"
+      ],
+      "outputModes": [
+        "text/plain",
+        "application/json"
+      ]
+    }
+  ]
+}

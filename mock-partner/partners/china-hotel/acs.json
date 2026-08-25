@@ -1,0 +1,114 @@
+{
+  "aic": "1.2.156.3088.1.1.CIQJUQ.HELDGD.1.03TO",
+  "active": true,
+  "lastModifiedTime": "2026-06-22T00:00:00.000000+08:00",
+  "protocolVersion": "02.01",
+  "name": "全国酒店预订智能体",
+  "description": "全国范围内酒店推荐、预订协助、住宿优化与价格比较。",
+  "version": "1.0.0",
+  "provider": {
+    "organization": "ACPs社区 (mock)",
+    "url": "https://ioa.pub"
+  },
+  "endPoints": [
+    {
+      "url": "http://127.0.0.1:9024/rpc",
+      "transport": "JSONRPC",
+      "security": [
+        {
+          "mtls": []
+        }
+      ]
+    }
+  ],
+  "capabilities": {
+    "streaming": false,
+    "notification": false,
+    "messageQueue": []
+  },
+  "defaultInputModes": [
+    "text/plain"
+  ],
+  "defaultOutputModes": [
+    "text/plain",
+    "application/json"
+  ],
+  "skills": [
+    {
+      "id": "china_hotel.hotel-recommendation",
+      "name": "酒店推荐服务",
+      "description": "根据位置、预算与偏好推荐酒店。",
+      "version": "1.0.0",
+      "tags": [
+        "酒店推荐"
+      ],
+      "examples": [
+        "在北京王府井附近推荐性价比高的酒店"
+      ],
+      "inputModes": [
+        "text/plain"
+      ],
+      "outputModes": [
+        "text/plain",
+        "application/json"
+      ]
+    },
+    {
+      "id": "china_hotel.reservation-assistance",
+      "name": "预订协助服务",
+      "description": "协助完成酒店预订流程与注意事项说明。",
+      "version": "1.0.0",
+      "tags": [
+        "预订协助"
+      ],
+      "examples": [
+        "帮我看看预订酒店的注意事项"
+      ],
+      "inputModes": [
+        "text/plain"
+      ],
+      "outputModes": [
+        "text/plain",
+        "application/json"
+      ]
+    },
+    {
+      "id": "china_hotel.accommodation-optimization",
+      "name": "住宿优化建议",
+      "description": "根据行程优化住宿地点与住宿安排。",
+      "version": "1.0.0",
+      "tags": [
+        "住宿优化"
+      ],
+      "examples": [
+        "3天北京行程，住哪个区域最方便"
+      ],
+      "inputModes": [
+        "text/plain"
+      ],
+      "outputModes": [
+        "text/plain",
+        "application/json"
+      ]
+    },
+    {
+      "id": "china_hotel.price-comparison",
+      "name": "价格比较服务",
+      "description": "比较同区域不同酒店的价格与性价比。",
+      "version": "1.0.0",
+      "tags": [
+        "价格比较"
+      ],
+      "examples": [
+        "比较北京国贸附近三家酒店的价格"
+      ],
+      "inputModes": [
+        "text/plain"
+      ],
+      "outputModes": [
+        "text/plain",
+        "application/json"
+      ]
+    }
+  ]
+}

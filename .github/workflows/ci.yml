@@ -1,0 +1,65 @@
+name: CI
+
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  protocol-smoke:
+    name: Protocol smoke (AIP RPC + ADP + acps-sdk bridge)
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Syntax check plugin modules
+        run: |
+          for f in packages/dsh-acps/lib/*.js; do node --check "$f"; done
+          python -c "import ast; ast.parse(open('packages/dsh-acps/bridge/acps_bridge.py', encoding='utf-8').read())"
+
+      - name: Start mock ACPs partners + ADP discovery
+        run: |
+          node mock-partner/server.js 9021 &
+          node mock-discovery/server.js 9050 &
+          sleep 2
+
+      - name: Smoke test — AIP RPC + ADP (JS client)
+        run: node scripts/smoke-aip.js 9021
+
+      - name: Install acps-sdk and smoke test the Python bridge
+        run: |
+          python -m pip install --no-cache-dir --target .pylibs acps-sdk
+          node scripts/smoke-bridge.js
+
+      - name: Smoke test — web-leader bridge (clothes leader chat API)
+        run: node scripts/smoke-web-leader.js
+
+  e2e-dsh:
+    # End-to-end against a real DSH boot requires a DeepSeek API key; run
+    # manually: gh workflow run ci.yml -f dsh_e2e=1  (or via workflow_dispatch)
+    if: github.event_name == 'workflow_dispatch'
+    name: DSH headless E2E (needs DEEPSEEK_API_KEY)
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Boot DSH headless leader (mock partners + official ADP)
+        env:
+          DEEPSEEK_API_KEY: ${{ secrets.DEEPSEEK_API_KEY }}
+        run: |
+          node mock-partner/server.js 9021 &
+          node mock-discovery/server.js 9050 &
+          sleep 2
+          npx -y @deepseek-ai/dsh --profile acps-headless \
+            "推荐一套今天的穿搭（上海，INFP，心情平静）" | tee /tmp/dsh-e2e.log
+          grep -qE "穿搭|上衣|裤子" /tmp/dsh-e2e.log || (echo "E2E output missing outfit plan" && exit 1)

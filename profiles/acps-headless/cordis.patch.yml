@@ -1,0 +1,29 @@
+# ACPs leader profile patch (headless variant): same configuration as the web
+# `acps` profile, for scripted/CLI verification.
+
+- id: acps
+  config:
+    leader:
+      aic: dsh-leader-001
+      name: DSH ACPs Leader
+    transport: js
+    python:
+      command: !!js process.env.ACPS_PYTHON ?? 'python'
+      pythonPath: !!js process.env.ACPS_SDK_PYTHONPATH ?? ''
+      port: 0
+    defaults:
+      pollIntervalMs: 2000
+      pollTimeoutMs: 300000
+      completeOnAwaitingCompletion: true
+      requestTimeoutMs: 30000
+    discovery:
+      serverBaseUrl: https://ioa.pub/discovery/acps-adp-v2
+      query: 穿搭 天气 北京旅游 美食
+      limit: 30
+    webLeaders:
+      - id: clothes-leader
+        name: 穿搭推荐 Leader
+        url: https://clothes.renew.cc.cd/api/chat
+        description: 穿搭推荐：输入城市、MBTI、心情，生成个性化穿搭方案（含天气匹配）。
+        requestTimeoutMs: 90000
+    partners: []

@@ -1,0 +1,49 @@
+{
+  "name": "dsh-acps",
+  "description": "DSH ACPs leader bridge: registers ACPs partner skills as DSH tools and delegates tasks over the AIP protocol",
+  "version": "0.1.0",
+  "keywords": [
+    "acps",
+    "aip",
+    "adp",
+    "agent",
+    "deepseek-harness",
+    "dsh",
+    "plugin",
+    "multi-agent"
+  ],
+  "type": "module",
+  "main": "lib/index.js",
+  "exports": {
+    ".": "./lib/index.js",
+    "./aip": "./lib/aip.js",
+    "./acs": "./lib/acs.js",
+    "./adp": "./lib/adp.js",
+    "./tools": "./lib/tools.js",
+    "./web-leader": "./lib/web-leader.js",
+    "./cordis.patch.yml": "./cordis.patch.yml",
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "lib/*.js",
+    "bridge/*.py",
+    "cordis.patch.yml"
+  ],
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/<your-org>/dsh-acps.git"
+  },
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    }
+  },
+  "dependencies": {
+    "@deepseek-ai/schemastery": "^3.18.1"
+  },
+  "peerDependencies": {
+    "@deepseek-ai/cordis": "^4.0.1",
+    "@deepseek-ai/dsh-tools": "^0.1.1-rc.2"
+  }
+}

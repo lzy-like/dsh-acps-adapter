@@ -1,0 +1,119 @@
+{
+  "aic": "1.2.156.3088.1.1.TTLIHU.LW9WCA.1.0N2P",
+  "active": true,
+  "lastModifiedTime": "2026-06-22T00:00:00.000000+08:00",
+  "protocolVersion": "02.01",
+  "name": "北京城区旅游智能体",
+  "description": "北京城区（东城、西城、朝阳、海淀等）景点推荐与行程规划，包括文化景点、亲子游、路线优化与预算规划。",
+  "version": "1.0.0",
+  "provider": {
+    "organization": "ACPs社区 (mock)",
+    "url": "https://ioa.pub"
+  },
+  "endPoints": [
+    {
+      "url": "http://127.0.0.1:9022/rpc",
+      "transport": "JSONRPC",
+      "security": [
+        {
+          "mtls": []
+        }
+      ]
+    }
+  ],
+  "capabilities": {
+    "streaming": false,
+    "notification": false,
+    "messageQueue": []
+  },
+  "defaultInputModes": [
+    "text/plain"
+  ],
+  "defaultOutputModes": [
+    "text/plain",
+    "application/json"
+  ],
+  "skills": [
+    {
+      "id": "beijing_urban.cultural-attraction-recommendation",
+      "name": "文化景点推荐",
+      "description": "推荐北京城区文化景点，如故宫、天坛、颐和园、恭王府等，并介绍游览要点。",
+      "version": "1.0.0",
+      "tags": [
+        "文化景点",
+        "故宫",
+        "天坛"
+      ],
+      "examples": [
+        "请推荐北京城区最值得去的文化景点，并告诉我每个景点的游览时长"
+      ],
+      "inputModes": [
+        "text/plain"
+      ],
+      "outputModes": [
+        "text/plain",
+        "application/json"
+      ]
+    },
+    {
+      "id": "beijing_urban.family-friendly-itinerary",
+      "name": "亲子游行程规划",
+      "description": "为亲子家庭规划北京城区行程，兼顾趣味性与体力安排。",
+      "version": "1.0.0",
+      "tags": [
+        "亲子游",
+        "家庭出行"
+      ],
+      "examples": [
+        "带5岁孩子玩北京3天，请规划城区亲子行程"
+      ],
+      "inputModes": [
+        "text/plain"
+      ],
+      "outputModes": [
+        "text/plain",
+        "application/json"
+      ]
+    },
+    {
+      "id": "beijing_urban.urban-route-optimization",
+      "name": "城区路线优化",
+      "description": "根据景点分布优化城区游览路线，减少往返时间。",
+      "version": "1.0.0",
+      "tags": [
+        "路线优化",
+        "城区交通"
+      ],
+      "examples": [
+        "我想一天逛故宫、天坛、颐和园，请帮我优化路线"
+      ],
+      "inputModes": [
+        "text/plain"
+      ],
+      "outputModes": [
+        "text/plain",
+        "application/json"
+      ]
+    },
+    {
+      "id": "beijing_urban.budget-conscious-planning",
+      "name": "预算规划服务",
+      "description": "按预算约束规划北京城区游览方案。",
+      "version": "1.0.0",
+      "tags": [
+        "预算规划",
+        "省钱"
+      ],
+      "examples": [
+        "预算500元玩北京城区一天，怎么安排"
+      ],
+      "inputModes": [
+        "text/plain"
+      ],
+      "outputModes": [
+        "text/plain",
+        "application/json"
+      ]
+    }
+  ]
+}

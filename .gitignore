@@ -1,0 +1,43 @@
+# --- Python / SDK ---
+.pylibs/
+__pycache__/
+*.pyc
+.venv/
+venv/
+
+# --- DSH runtime / sessions ---
+.dsh/
+.dsh-test-home/
+sessions/
+*.session.jsonl
+*.session.jsonl.zstd
+
+# --- Secrets & local config ---
+.env
+.env.local
+.credentials.yaml
+*.pem
+*.crt
+*.key
+
+# --- Reference clone (external repo, documented in README) ---
+/acps-community/
+
+# --- Node ---
+node_modules/
+*.log
+npm-debug.log*
+
+# --- OS / editors ---
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+*.swp
+
+# --- Investigation artifacts (kept out of the repo) ---
+.dingdang-*
+.outfit-*
+.clothes-*
+.chat-api-*
+.adp-*

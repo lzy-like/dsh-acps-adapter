@@ -1,0 +1,97 @@
+{
+  "aic": "1.2.156.3088.1.1.8UDX9U.NNVB61.1.13WT",
+  "active": true,
+  "lastModifiedTime": "2026-06-22T00:00:00.000000+08:00",
+  "protocolVersion": "02.01",
+  "name": "全国交通规划智能体",
+  "description": "全国范围城际交通规划、路线优化与特殊需求交通安排。",
+  "version": "1.0.0",
+  "provider": {
+    "organization": "ACPs社区 (mock)",
+    "url": "https://ioa.pub"
+  },
+  "endPoints": [
+    {
+      "url": "http://127.0.0.1:9025/rpc",
+      "transport": "JSONRPC",
+      "security": [
+        {
+          "mtls": []
+        }
+      ]
+    }
+  ],
+  "capabilities": {
+    "streaming": false,
+    "notification": false,
+    "messageQueue": []
+  },
+  "defaultInputModes": [
+    "text/plain"
+  ],
+  "defaultOutputModes": [
+    "text/plain",
+    "application/json"
+  ],
+  "skills": [
+    {
+      "id": "china_transport.intercity-transportation-planning",
+      "name": "城际交通规划",
+      "description": "规划城市之间的交通方式（高铁/飞机/自驾）与时间。",
+      "version": "1.0.0",
+      "tags": [
+        "城际交通",
+        "高铁"
+      ],
+      "examples": [
+        "北京到上海最快的交通方式是什么"
+      ],
+      "inputModes": [
+        "text/plain"
+      ],
+      "outputModes": [
+        "text/plain",
+        "application/json"
+      ]
+    },
+    {
+      "id": "china_transport.route-optimization",
+      "name": "路线优化服务",
+      "description": "优化多城市串联行程的交通路线。",
+      "version": "1.0.0",
+      "tags": [
+        "路线优化"
+      ],
+      "examples": [
+        "北京-西安-成都-上海怎么串联交通最顺"
+      ],
+      "inputModes": [
+        "text/plain"
+      ],
+      "outputModes": [
+        "text/plain",
+        "application/json"
+      ]
+    },
+    {
+      "id": "china_transport.special-needs-transportation",
+      "name": "特殊需求交通",
+      "description": "安排老人、儿童、无障碍等特殊需求交通。",
+      "version": "1.0.0",
+      "tags": [
+        "特殊需求",
+        "无障碍"
+      ],
+      "examples": [
+        "带老人出行，北京到青岛选什么交通方式"
+      ],
+      "inputModes": [
+        "text/plain"
+      ],
+      "outputModes": [
+        "text/plain",
+        "application/json"
+      ]
+    }
+  ]
+}

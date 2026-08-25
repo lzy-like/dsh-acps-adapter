@@ -1,0 +1,38 @@
+# ACPs leader profile patch: points the DSH leader at the official ACPs
+# ecosystem (ioa.pub) — official ADP discovery + the public 穿搭推荐 Leader
+# bridge. Local mock partners are intentionally not configured here; see
+# mock-partner/ for an offline development setup.
+
+- id: acps
+  config:
+    leader:
+      aic: dsh-leader-001
+      name: DSH ACPs Leader
+    # 默认 AIP 传输：js = 内置客户端（官方生态里可直接调用的智能体用它即可）。
+    transport: js
+    python:
+      command: !!js process.env.ACPS_PYTHON ?? 'python'
+      pythonPath: !!js process.env.ACPS_SDK_PYTHONPATH ?? ''
+      port: 0
+    defaults:
+      pollIntervalMs: 2000
+      pollTimeoutMs: 300000
+      completeOnAwaitingCompletion: true
+      requestTimeoutMs: 30000
+    # 官方 ADP 发现服务：启动时自动注册生态中返回的智能体（acsMap），
+    # 并注册 acps_discover 工具供运行时查询。
+    discovery:
+      serverBaseUrl: https://ioa.pub/discovery/acps-adp-v2
+      query: 穿搭 天气 北京旅游 美食
+      limit: 30
+    # 通过 ACPs Leader 的公开协作接口委托（该 Leader 持有生态证书，
+    # 内部用 AIP 调用其 Partner——例如穿搭推荐 Leader 调用「穿搭推荐智能体」）。
+    webLeaders:
+      - id: clothes-leader
+        name: 穿搭推荐 Leader
+        url: https://clothes.renew.cc.cd/api/chat
+        description: 穿搭推荐：输入城市、MBTI、心情，生成个性化穿搭方案（含天气匹配）。
+        requestTimeoutMs: 90000
+    # 静态 Partner 列表（可选）。官方生态的智能体由 discovery 自动注册；
+    # 需要直连的智能体可在此显式配置 url + acsUrl（或 acsFile 内联 ACS）。
+    partners: []
