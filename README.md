@@ -40,6 +40,44 @@ scripts/smoke-aip.js       协议级冒烟测试（AIP RPC + ADP 发现，不依
 acps-community/            ACPs 官方仓库参考克隆
 ```
 
+## 仓库结构（大白话版）
+
+> 比喻：插件 = 让 DSH 学会说 ACPs 话的翻译器；智能体 = 门店；Leader = 调度中心。
+
+```
+dsh-acps-adapter/
+├── README.md                 ← 说明书（怎么装、怎么用、怎么接智能体）
+├── LICENSE                   ← 使用许可（MIT：别人可以自由使用、修改）
+├── .gitignore                ← 上传黑名单（Python 依赖、密钥、会话记录都挡在外面）
+├── .gitattributes            ← 换行符规范（防止不同电脑间文件变乱）
+├── .env.example              ← 参数示例（告诉别人该设置哪些环境变量）
+├── CONTRIBUTING.md           ← 贡献指南（别人想改代码，按这个流程来）
+├── SECURITY.md               ← 安全问题怎么私下报告
+├── .github/workflows/ci.yml  ← 自动测试（每次提交代码自动跑一遍检查）
+│
+├── packages/dsh-acps/        ← ★ 核心：翻译器插件
+│   ├── lib/                  ←    插件代码（注册工具、AIP 对话客户端、
+│   │                               官方 SDK 桥接、穿搭 Leader 桥接）
+│   ├── bridge/acps_bridge.py ←    Python 小桥（让插件真的用官方 acps-sdk）
+│   ├── cordis.patch.yml      ←    插件"安装说明书"（装什么、Leader 人设写哪）
+│   ├── package.json          ←    插件身份证（名字、版本、依赖什么）
+│   └── README.md             ←    插件自己的说明
+│
+├── profiles/                 ← 两个"调度中心"的配置
+│   ├── acps/                 ←    网页版 Leader（端口 3090）
+│   └── acps-headless/        ←    命令行版 Leader
+│
+├── mock-partner/             ← 5 个"练习门店"（假的 ACPs 智能体）
+│   ├── server.js             ←    假门店服务（按 ACPs 规矩回话）
+│   └── partners/*/acs.json   ←    每个假门店的"介绍信"
+│
+├── mock-discovery/           ← 1 个"练习问询处"（假发现服务）
+│
+└── scripts/                  ← 辅助工具
+    ├── deploy-profile.ps1    ←    一键部署（把插件装进 DSH）
+    └── smoke-*.js            ←    自动测试（协议、SDK 桥接、穿搭桥接）
+```
+
 ## 快速开始
 
 ### 0. 前置
